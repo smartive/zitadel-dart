@@ -8,6 +8,8 @@ environment:
   sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
+  fixnum: ^1.0.0
   grpc: ^3.0.0
   http: ^0.13.2
   jose: ^0.3.2
+  protobuf: ^2.0.0
