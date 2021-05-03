@@ -1,0 +1,11 @@
+name: zitadel
+version: 0.0.0-dev
+description: >-
+  Dart package for Zitadel relatet matters. Contains the compiled grpc (client and server)
+  parts for further extension.
+repository: https://github.com/caos/zitadel-dart
+environment:
+  sdk: '>=2.12.0 <3.0.0'
+
+dependencies:
+  grpc: ^3.0.0

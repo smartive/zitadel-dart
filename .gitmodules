@@ -1,0 +1,3 @@
+[submodule "submodule/zitadel"]
+	path = submodule/zitadel
+	url = git@github.com:caos/zitadel.git
