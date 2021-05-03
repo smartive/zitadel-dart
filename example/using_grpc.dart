@@ -5,7 +5,7 @@ import 'package:zitadel/src/grpc/generated/zitadel/auth.pb.dart';
 import 'package:zitadel/zitadel_defaults.dart';
 
 void main() async {
-  const accessToken = ''; // <- fetch an access token from zitadel.
+  const accessToken = 'token'; // <- fetch an access token from zitadel.
 
   final auth = ApiClients.auth(ZitadelApiEntpoint,
       metadata: {HttpHeaders.authorizationHeader: 'Bearer $accessToken'});

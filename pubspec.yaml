@@ -9,3 +9,5 @@ environment:
 
 dependencies:
   grpc: ^3.0.0
+  http: ^0.13.2
+  jose: ^0.3.2
