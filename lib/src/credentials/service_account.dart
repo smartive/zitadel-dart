@@ -5,6 +5,9 @@ import 'package:http/http.dart' as http;
 import 'package:jose/jose.dart';
 import 'package:zitadel/zitadel_defaults.dart';
 
+/// Class that helps authenticating against the Zitadel
+/// issuer with the help of service account credentials.
+/// Can be loaded from json.
 class ServiceAccount {
   static const type = 'serviceaccount';
   final String userId;
@@ -32,6 +35,9 @@ class ServiceAccount {
         'key': key,
       };
 
+  /// Authenticate the service account with [AuthOptions]
+  /// against the provided issuer. The issuer must be provided.
+  /// You may use [ZitadelIssuer].
   Future<String> authenticate(AuthOptions options) async {
     final discoveryResponse = await http.get(
       Uri.parse(
@@ -62,6 +68,8 @@ class ServiceAccount {
     return json['access_token'];
   }
 
+  /// Create and sign a JWT for the given issuer.
+  /// The JWT is signed with RSA256 algorithm and the given private key.
   String getSignedJwt(String issuer) {
     final claims = JsonWebTokenClaims.fromJson({
       "iss": userId,
@@ -86,12 +94,28 @@ class ServiceAccount {
   }
 }
 
+/// Options for authenticating a [ServiceAccount].
 class AuthOptions {
+  /// The issuer to use.
   final String issuer;
+
+  /// If provided, an url that points to the discovery endpoint document.
+  /// If omitted, the issuer with [DiscoveryEndpointPath] is used.
   final String? discoveryEndpoint;
+
+  /// Defines the primary domain of this service account (if needed).
   final String? primaryDomain;
+
+  /// A list of required roles to add to the fetched token.
+  /// Translates to the role scope ("urn:zitadel:iam:org:project:role:{Role}").
   final List<String> requiredRoles;
+
+  /// List of audiences that should be attached to the token.
+  /// Translates to the additional audience scope
+  /// ("urn:zitadel:iam:org:project:id:{ProjectId}:aud").
   final List<String> projectAudiences;
+
+  /// List of arbitrary additional scopes that are concatenated into the scope.
   final List<String> additionalScopes;
 
   AuthOptions(this.issuer,
