@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:http/http.dart';
 import 'package:jose/jose.dart';
@@ -98,7 +97,7 @@ class ServiceAccount {
 
     final discoveryResponse = await get(
       Uri.parse(_discoveryEndpoint(options.discoveryEndpoint ?? audience)),
-      headers: {HttpHeaders.acceptHeader: 'application/json; charset=UTF-8'},
+      headers: {'accept': 'application/json; charset=UTF-8'},
     );
     final issuerJson = jsonDecode(utf8.decode(discoveryResponse.bodyBytes));
     final tokenEndpoint = issuerJson['token_endpoint'];
@@ -106,7 +105,7 @@ class ServiceAccount {
 
     final response = await post(
       Uri.parse(tokenEndpoint),
-      headers: {HttpHeaders.acceptHeader: 'application/json; charset=UTF-8'},
+      headers: {'accept': 'application/json; charset=UTF-8'},
       body: {
         'grant_type': 'urn:ietf:params:oauth:grant-type:jwt-bearer',
         'assertion': jwt,

@@ -12,4 +12,6 @@ linter:
     prefer_relative_imports: true
 
 analyzer:
-  exclude: []
+  exclude:
+    - lib/src/grpc/generated
+    - external/

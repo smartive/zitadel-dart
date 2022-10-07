@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 const zitadelAudience = 'https://zitadel-libraries-l8boqa.zitadel.cloud';
+const zitadelApiUrl = 'zitadel-libraries-l8boqa.zitadel.cloud';
 
 const applicationJsonString = '''
 {
