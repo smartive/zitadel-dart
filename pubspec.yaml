@@ -5,14 +5,15 @@ description: >-
   parts for further extension.
 repository: https://github.com/caos/zitadel-dart
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: '>=2.15.0 <3.0.0'
 
 dependencies:
-  fixnum: ^1.0.0
-  grpc: ^3.0.0
-  http: ^0.13.2
+  fixnum: ^1.0.1
+  grpc: ^3.0.2
+  http: ^0.13.5
   jose: ^0.3.2
-  protobuf: ^2.0.0
+  protobuf: ^2.1.0
 
 dev_dependencies:
-  test: ^1.17.3
+  lints: ^2.0.0
+  test: ^1.21.6
