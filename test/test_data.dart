@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:zitadel/credentials.dart';
+
 const zitadelAudience = 'https://zitadel-libraries-l8boqa.zitadel.cloud';
 const zitadelApiUrl = 'zitadel-libraries-l8boqa.zitadel.cloud';
 
@@ -27,3 +29,5 @@ const serviceAccountJsonString = '''
 ''';
 
 final serviceAccountJson = jsonDecode(serviceAccountJsonString);
+
+final serviceAccount = ServiceAccount.fromJson(serviceAccountJson);
