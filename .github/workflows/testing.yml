@@ -46,6 +46,7 @@ jobs:
         run: dart pub global activate protoc_plugin
       - name: build gRPC
         run: ./tool/generate_grpc.sh
-      - run: echo '### Publish Pub Package Result' >> $GITHUB_STEP_SUMMARY
+      - run: echo '### Publish Pub Package Result' >> $GITHUB_STEP_SUMMARY && echo '```' >> $GITHUB_STEP_SUMMARY
       - run: dart pub publish --dry-run >> $GITHUB_STEP_SUMMARY
         continue-on-error: true
+      - run: echo '```' >> $GITHUB_STEP_SUMMARY
