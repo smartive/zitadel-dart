@@ -5,7 +5,7 @@ description: >-
   parts for further extension.
 repository: https://github.com/caos/zitadel-dart
 environment:
-  sdk: '>=2.15.0 <3.0.0'
+  sdk: '>=2.18.0 <3.0.0'
 
 dependencies:
   fixnum: ^1.0.1

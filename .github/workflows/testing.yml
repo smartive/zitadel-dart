@@ -11,7 +11,6 @@ jobs:
       fail-fast: true
       matrix:
         sdk:
-          - 2.15.0
           - stable
     name: Linting and Testing
     runs-on: ubuntu-latest
