@@ -1,3 +1,17 @@
+# [2.0.0](https://github.com/smartive/zitadel-dart/compare/v1.0.0...v2.0.0) (2022-10-08)
+
+
+### Features
+
+* ZITADEL v2 ([#3](https://github.com/smartive/zitadel-dart/issues/3)) ([514941e](https://github.com/smartive/zitadel-dart/commit/514941e9e91df06bb58f7e15bf95fd909283a14a))
+
+
+### BREAKING CHANGES
+
+* This overhauls the whole
+API and also upgrades to ZITADEL v2. Please
+consult the docs.
+
 # 1.0.0 (2021-05-03)
 
 

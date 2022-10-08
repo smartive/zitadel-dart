@@ -1,5 +1,5 @@
 name: zitadel
-version: 1.0.0
+version: 2.0.0
 description: >-
   Dart package for Zitadel relatet matters. Contains the compiled grpc (client and server)
   parts for further extension.
