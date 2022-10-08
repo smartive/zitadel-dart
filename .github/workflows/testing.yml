@@ -48,3 +48,4 @@ jobs:
         run: ./tool/generate_grpc.sh
       - run: echo '### Publish Pub Package Result' >> $GITHUB_STEP_SUMMARY
       - run: dart pub publish --dry-run >> $GITHUB_STEP_SUMMARY
+        continue-on-error: true
