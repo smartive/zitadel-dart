@@ -14,7 +14,9 @@
     [
       "@semantic-release/exec",
       {
-        "prepareCmd": "sed -i 's/^version: .*$/version: ${nextRelease.version}/' pubspec.yaml"
+        "verifyConditionsCmd": "if [ -z \"$CREDENTIALS\" ]; then exit 1; fi && mkdir -p ~/.config/dart && echo \"$CREDENTIALS\" > ~/.config/dart/pub-credentials.json",
+        "prepareCmd": "./tool/generate_grpc.sh && sed -i 's/^version: .*$/version: ${nextRelease.version}/' pubspec.yaml",
+        "publishCmd": "dart pub publish -f"
       }
     ],
     [
