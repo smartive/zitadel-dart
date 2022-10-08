@@ -27,5 +27,6 @@ jobs:
         run: dart pub global activate protoc_plugin
       - name: build gRPC
         run: ./tool/generate_grpc.sh
+      - run: dart pub get
       - run: dart analyze
       - run: dart test
