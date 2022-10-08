@@ -1,7 +1,5 @@
 #! /bin/sh
 
-set -euo pipefail
-
 echo $PWD
 
 GEN_PATH=lib/src/grpc/generated
