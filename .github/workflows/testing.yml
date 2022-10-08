@@ -1,0 +1,31 @@
+name: Test Package
+
+on:
+  pull_request:
+    branches:
+      - '**'
+
+jobs:
+  lint_and_test:
+    strategy:
+      fail-fast: true
+      matrix:
+        sdk:
+          - 2.15.0
+          - stable
+    name: Linting and Testing
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: ${{ matrix.sdk }}
+      - uses: arduino/setup-protoc@v1
+      - name: enable protoc dart
+        run: dart pub global activate protoc_plugin
+      - name: build gRPC
+        run: ./tool/generate_grpc.sh
+      - run: dart analyze
+      - run: dart test
