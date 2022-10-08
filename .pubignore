@@ -1,0 +1,12 @@
+tool/
+test/
+.dart_tool/
+
+doc/api/
+
+pubspec.lock
+
+external/
+
+renovate.json
+analysis_options.yaml

@@ -1,21 +1,23 @@
 #! /bin/sh
 
-set -euo pipefail
-
 echo $PWD
 
-PROTOS=lib/src/proto
 GEN_PATH=lib/src/grpc/generated
-
-if [[ "$PWD" == *tool ]]; then
-    echo "Started script in tool folder."
-    PROTOS="../$PROTOS"
-    GEN_PATH="../$GEN_PATH"
-fi
 
 echo "Remove generated stuff."
 rm -rf $GEN_PATH
 
 echo "Generate grpc"
 mkdir -p $GEN_PATH
-protoc -I=$PROTOS --dart_out=grpc:$GEN_PATH $(find $PROTOS -type f -name "*.proto" | tr '\n' ' ')
+protoc \
+    -I=external/zitadel/proto \
+    -I=external/protoc-gen-validate \
+    -I=external/grpc-gateway \
+    -I=external/googleapis \
+    -I=external/protobuf/src \
+    --dart_out=grpc:$GEN_PATH \
+    $(find external/zitadel/proto -type f -name "*.proto" | tr '\n' ' ') \
+    external/protobuf/src/google/protobuf/duration.proto \
+    external/protobuf/src/google/protobuf/timestamp.proto \
+    external/protobuf/src/google/protobuf/empty.proto \
+    external/protobuf/src/google/protobuf/wrappers.proto

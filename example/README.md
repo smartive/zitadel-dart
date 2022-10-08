@@ -1,54 +1,35 @@
 # Examples
 
-Here you'll find examples on how to use the Zitadel package.
+There are two essential examples in this directory:
 
-There are two specific examples:
+- Fetching the user with a personal access token
+- Fetching the user with a service account JWT profile
 
-- Use gRPC with Zitadel in general
-- Use a service account to fetch an access token from Zitadel
+## Fetching the user with a personal access token
 
-## Fetch token with ServiceAccount
+This example shows how to fetch the user profile with a personal access token (PAT).
+It requires api access, which is implicitly given by the PAT. The full, runnable
+example can be found in [access_token_api_access.dart](./access_token_api_access.dart).
 
-To fetch a token from Zitadel, get a service account key from [zitadel.ch](https://console.zitadel.ch).
-Then use that json to instantiate the service account and the `authenticate` method to fetch a token.
+In short, one needs to attach a `MetadataProvider` to the created client:
 
 ```dart
-Map<String, dynamic> json = {
-  "type": "serviceaccount",
-  "keyId": "keyId",
-  "key": "key",
-  "userId": "userId"
-};
-
-void main() async {
-  // Load the service account form a json representation.
-  var account = ServiceAccount.fromJson(json);
-  print(account);
-
-  // Authenticated against the zitadel issuer.
-  var token = await account.authenticate(AuthOptions(ZitadelIssuer));
-  print(token);
-}
+final auth = createAuthClient(zitadelApiUrl, metadataProviders: [accessTokenProvider(accessToken)]);
+final response = await auth.getMyUser(GetMyUserRequest());
 ```
 
-## Access gRPC endpoint of Zitadel
+## Fetching the user with a service account JWT profile
 
-To use the gRPC API, first fetch a token
-(either with a service account or by some OIDC flow)
-and provide it to the constructor. Then, you may
-call the defined API endpoint.
+This example shows how to fetch the user profile with a service account JWT profile.
+The JWT profile can be created in the ZITADEL console, just like the PAT.
+The profile includes a private RSA key for the service account to sign a JWT on behalf
+of the account. Then, the service account authenticates itself with the JWT.
+As a result, an access token is returned by ZITADEL, which can be used to access the API.
+The full example is available in [service_account_api_access.dart](./service_account_api_access.dart).
 
 ```dart
-void main() async {
-  const accessToken = 'token'; // <- fetch an access token from zitadel.
-
-  final auth = ApiClients.auth(ZitadelApiEntpoint,
-      metadata: {HttpHeaders.authorizationHeader: 'Bearer $accessToken'});
-
-  final response = await auth.listMyProjectOrgs(ListMyProjectOrgsRequest());
-
-  for (var org in response.result) {
-    print('Organization "${org.name}" with id "${org.id}" found.');
-  }
-}
+final auth = createAuthClient(zitadelApiUrl, metadataProviders: [
+  serviceAccountProvider(zitadelAudience, serviceAccount, AuthenticationOptions(apiAccess: true))
+]);
+final response = await auth.getMyUser(GetMyUserRequest());
 ```
