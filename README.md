@@ -1,18 +1,13 @@
-# Zitadel Dart
+# ZITADEL Dart
 
-This is the dart library for Zitadel.
+This is the dart library for ZITADEL and related utilities.
 
-Right now, there are two features included:
+This library contains the compiled and generated [gRPC](https://grpc.io/)
+service clients for the ZITADEL API.
 
-- gRPC API bindings for clients and servers (usually you'll use the client)
-- Service Account authentication
-
-When using gRPC to communicate with the Zitadel API
-you can obtain an access token by logging in into Zitadel
-or use the provided service account class to authenticate.
-
-Keep in mind, that you need to have the project audience
-of the Zitadel API if you want to access the API.
+Also it contains helpers to create the service clients to access the API.
+With two `MetadataProvider` (`accessTokenProvider` and `serviceAccountProvider`),
+the clients can be created with the correct authentication already in place.
 
 Head over to [the examples](./example) to see implementation
-examples.
+examples for both cases.
