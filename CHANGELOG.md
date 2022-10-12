@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/smartive/zitadel-dart/compare/v2.0.0...v2.1.0) (2022-10-12)
+
+
+### Features
+
+* add web possibility ([#7](https://github.com/smartive/zitadel-dart/issues/7)) ([a8e3928](https://github.com/smartive/zitadel-dart/commit/a8e39289744fe5c6339fb91fc896cf270a96e7da))
+
 # [2.0.0](https://github.com/smartive/zitadel-dart/compare/v1.0.0...v2.0.0) (2022-10-08)
 
 
