@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:zitadel/api/auth.dart';
+import 'package:zitadel/api/clients.dart';
+
+import 'constants_io.dart' if (dart.library.html) 'constants_web.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,11 +15,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'ZITADEL Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'ZITADEL Demo'),
     );
   }
 }
@@ -29,11 +33,17 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  String _userData = 'no data';
 
-  void _incrementCounter() {
+  Future<void> _fetchData() async {
+    print('call grpc web api.');
+
+    final auth = createAuthClient(zitadelApiUrl, metadataProviders: [accessTokenProvider(accessToken)]);
+    final response = await auth.getMyUser(GetMyUserRequest());
+    print(response);
+
     setState(() {
-      _counter++;
+      _userData = response.toString();
     });
   }
 
@@ -47,20 +57,12 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
+            TextButton(onPressed: _fetchData, child: const Text('Fetch Data')),
             Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+              _userData,
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }
