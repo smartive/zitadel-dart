@@ -1,4 +1,4 @@
-import 'package:grpc/grpc.dart';
+import 'package:grpc/grpc.dart' if (dart.library.html) 'package:grpc/grpc_web.dart';
 
 import '../credentials/service_account.dart';
 

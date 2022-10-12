@@ -1,0 +1,16 @@
+name: grpc_web
+description: An example for ZITADEL web usage.
+version: 0.0.0-development
+publish_to: none
+
+environment:
+  sdk: '>=2.18.2 <3.0.0'
+
+dependencies:
+  zitadel:
+    path: ../..
+
+dev_dependencies:
+  build_runner: ^2.1.4
+  build_web_compilers: ^3.2.1
+  lints: ^2.0.0

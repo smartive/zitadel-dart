@@ -5,5 +5,5 @@
 /// authenticate the clients against ZITADEL.
 library clients;
 
-export '../src/grpc/clients.dart';
+export '../src/grpc/clients_io.dart' if (dart.library.html) '../src/grpc/clients_web.dart';
 export '../src/grpc/metadata_provider.dart';

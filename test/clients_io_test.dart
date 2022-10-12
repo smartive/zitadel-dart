@@ -1,8 +1,10 @@
+@TestOn('vm')
+
 import 'package:test/test.dart';
 import 'package:zitadel/api/admin.dart' as admin;
 import 'package:zitadel/api/auth.dart' as auth;
-import 'package:zitadel/api/management.dart' as management;
 import 'package:zitadel/api/clients.dart';
+import 'package:zitadel/api/management.dart' as management;
 
 import 'test_data.dart';
 
