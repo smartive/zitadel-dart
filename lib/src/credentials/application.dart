@@ -68,13 +68,18 @@ class Application {
       'iss': clientId,
       'sub': clientId,
       'iat': DateTime.now().toUtc().millisecondsSinceEpoch ~/ 1000,
-      'exp': DateTime.now().toUtc().add(Duration(hours: 1)).millisecondsSinceEpoch ~/ 1000,
+      'exp': DateTime.now()
+              .toUtc()
+              .add(Duration(hours: 1))
+              .millisecondsSinceEpoch ~/
+          1000,
       'aud': audience,
     });
 
     final builder = JsonWebSignatureBuilder();
     builder.jsonContent = claims.toJson();
-    builder.addRecipient(JsonWebKey.fromPem(key, keyId: keyId), algorithm: 'RS256');
+    builder.addRecipient(JsonWebKey.fromPem(key, keyId: keyId),
+        algorithm: 'RS256');
 
     final signature = builder.build();
 
