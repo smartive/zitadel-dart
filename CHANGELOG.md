@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/smartive/zitadel-dart/compare/v2.1.0...v2.1.1) (2022-10-13)
+
+
+### Bug Fixes
+
+* **deps:** update dependency com.android.tools.build:gradle to v7.3.0 ([#10](https://github.com/smartive/zitadel-dart/issues/10)) ([97e97ba](https://github.com/smartive/zitadel-dart/commit/97e97ba216fd96a09a23243001f9ca1db762e47a))
+
 # [2.1.0](https://github.com/smartive/zitadel-dart/compare/v2.0.0...v2.1.0) (2022-10-12)
 
 
