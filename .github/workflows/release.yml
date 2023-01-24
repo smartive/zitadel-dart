@@ -19,8 +19,11 @@ jobs:
         with:
           sdk: stable
       - uses: arduino/setup-protoc@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
       - name: enable protoc dart
         run: dart pub global activate protoc_plugin
+      - run: dart pub get
       - name: release
         uses: cycjimmy/semantic-release-action@v3
         with:

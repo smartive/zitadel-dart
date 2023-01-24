@@ -23,11 +23,15 @@ jobs:
         with:
           sdk: ${{ matrix.sdk }}
       - uses: arduino/setup-protoc@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
       - name: enable protoc dart
         run: dart pub global activate protoc_plugin
       - name: build gRPC
         run: ./tool/generate_grpc.sh
       - run: dart pub get
+      - name: build barrel files
+        run: ./tool/generate_barrel_files.dart
       - run: dart analyze
       - run: dart test
 
@@ -56,11 +60,16 @@ jobs:
         with:
           sdk: stable
       - uses: arduino/setup-protoc@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
       - name: enable protoc dart
         run: dart pub global activate protoc_plugin
+      - run: dart pub get
       - name: build gRPC
         run: ./tool/generate_grpc.sh
-      - run: echo '### Publish Pub Package Result' >> $GITHUB_STEP_SUMMARY && echo '```' >> $GITHUB_STEP_SUMMARY
+      - name: build barrel files
+        run: ./tool/generate_barrel_files.dart
+      - run: echo '### Publish Pub Package Result' >> $GITHUB_STEP_SUMMARY
       - run: dart pub publish --dry-run >> $GITHUB_STEP_SUMMARY
         continue-on-error: true
-      - run: echo '```' >> $GITHUB_STEP_SUMMARY
+      - run: echo '' >> $GITHUB_STEP_SUMMARY
