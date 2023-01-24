@@ -31,6 +31,20 @@ jobs:
       - run: dart analyze
       - run: dart test
 
+  test_result:
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    name: Test and Lint Results
+    needs: [lint_and_test]
+    steps:
+      - run: |
+          result="${{ needs.lint_and_test.result }}"
+          if [[ $result == "success" || $result == "skipped" ]]; then
+            exit 0
+          else
+            exit 1
+          fi
+
   publish_dryrun:
     name: Show publish dry run
     runs-on: ubuntu-latest
