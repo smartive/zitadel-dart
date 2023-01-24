@@ -18,6 +18,7 @@ protoc \
     --dart_out=grpc:$GEN_PATH \
     $(find external/zitadel/proto -type f -name "*.proto" | tr '\n' ' ') \
     external/protobuf/src/google/protobuf/duration.proto \
+    external/protobuf/src/google/protobuf/struct.proto \
     external/protobuf/src/google/protobuf/timestamp.proto \
     external/protobuf/src/google/protobuf/empty.proto \
     external/protobuf/src/google/protobuf/wrappers.proto
