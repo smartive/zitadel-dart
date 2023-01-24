@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/smartive/zitadel-dart/compare/v2.2.0...v2.2.1) (2023-01-24)
+
+
+### Bug Fixes
+
+* expose the grpc client types ([#96](https://github.com/smartive/zitadel-dart/issues/96)) ([49588cb](https://github.com/smartive/zitadel-dart/commit/49588cb8fe6d70e20a73f8f55ebe446df58fbdfa))
+
 # [2.2.0](https://github.com/smartive/zitadel-dart/compare/v2.1.1...v2.2.0) (2023-01-24)
 
 
