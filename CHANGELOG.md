@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/smartive/zitadel-dart/compare/v2.1.1...v2.2.0) (2023-01-24)
+
+
+### Features
+
+* upgrade dependencies and add struct.proto to generation ([#95](https://github.com/smartive/zitadel-dart/issues/95)) ([8252491](https://github.com/smartive/zitadel-dart/commit/8252491fcb4377c528f6cb2abc64b4e582c70416))
+
 ## [2.1.1](https://github.com/smartive/zitadel-dart/compare/v2.1.0...v2.1.1) (2022-10-13)
 
 
