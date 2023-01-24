@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/smartive/zitadel-dart/compare/v3.0.0...v3.0.1) (2023-01-24)
+
+
+### Bug Fixes
+
+* use pubignore to allow generated files ([b543d5d](https://github.com/smartive/zitadel-dart/commit/b543d5d3b21c5625858e564c26a6b78c00c485a5))
+
 # [3.0.0](https://github.com/smartive/zitadel-dart/compare/v2.2.1...v3.0.0) (2023-01-24)
 
 
