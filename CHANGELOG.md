@@ -1,3 +1,18 @@
+# [3.0.0](https://github.com/smartive/zitadel-dart/compare/v2.2.1...v3.0.0) (2023-01-24)
+
+
+### Bug Fixes
+
+* export all relevant types ([#97](https://github.com/smartive/zitadel-dart/issues/97)) ([019c4f6](https://github.com/smartive/zitadel-dart/commit/019c4f6d19f2c606e6fd4921c346cb4607dd7ce7))
+
+
+### BREAKING CHANGES
+
+* This moves the admin, auth and management
+files into the ZITADEL subfolder to adhere to the new
+structure. All relevant types are now exported via the
+api folder (google well-known and zitadel types).
+
 ## [2.2.1](https://github.com/smartive/zitadel-dart/compare/v2.2.0...v2.2.1) (2023-01-24)
 
 
