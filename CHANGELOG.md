@@ -1,3 +1,10 @@
+## [3.0.16](https://github.com/smartive/zitadel-dart/compare/v3.0.15...v3.0.16) (2023-03-07)
+
+
+### Bug Fixes
+
+* **zitadel upstream:** update external/zitadel digest to 23c14d9 ([#137](https://github.com/smartive/zitadel-dart/issues/137)) ([4000a08](https://github.com/smartive/zitadel-dart/commit/4000a080a1656cf100277777c79cabdbc6836158))
+
 ## [3.0.15](https://github.com/smartive/zitadel-dart/compare/v3.0.14...v3.0.15) (2023-03-05)
 
 
