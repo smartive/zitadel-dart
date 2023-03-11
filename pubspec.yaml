@@ -1,5 +1,5 @@
 name: zitadel
-version: 3.0.19
+version: 3.0.20
 description: >-
   Dart package for ZITADEL relatet matters. Contains the compiled grpc service clients
   to access the ZITADEL API.
