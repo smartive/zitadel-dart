@@ -1,5 +1,0 @@
-{
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>smartive/renovate-config", "github>smartive/renovate-config:with-submodules"],
-  "ignorePaths": ["**/example/**"]
-}
