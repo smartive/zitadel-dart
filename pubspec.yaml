@@ -1,20 +1,25 @@
 name: zitadel
 version: 3.0.38
 description: >-
-  Dart package for ZITADEL relatet matters. Contains the compiled grpc service clients
-  to access the ZITADEL API.
-repository: https://github.com/caos/zitadel-dart
+  Dart package for ZITADEL relatet matters. Contains the compiled grpc service
+  clients to access the ZITADEL API.
+
+repository: https://github.com/smartive/zitadel-dart
+
 environment:
-  sdk: '>=2.18.0 <3.0.0'
+  sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
-  fixnum: ^1.0.1
-  grpc: ^3.0.2
-  http: ^0.13.5
+  fixnum: ^1.0.0
+  grpc: ^3.0.0
+  http: ^1.0.0
   jose: ^0.3.2
-  protobuf: ^2.1.0
+  protobuf: ^3.0.0
 
 dev_dependencies:
-  lints: ^2.0.0
-  path: ^1.8.3
+  build_runner: ^2.4.4
+  code_builder:
+  dart_style:
+  lints: ^3.0.0
+  path:
   test: ^1.21.6

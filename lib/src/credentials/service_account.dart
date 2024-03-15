@@ -50,7 +50,9 @@ class ServiceAccount {
   }
 
   static String _discoveryEndpoint(String endpoint) =>
-      endpoint.endsWith(discoveryEndpointPath) ? endpoint : '$endpoint$discoveryEndpointPath';
+      endpoint.endsWith(discoveryEndpointPath)
+          ? endpoint
+          : '$endpoint$discoveryEndpointPath';
 
   /// Create a JSON map from the application.
   Map<String, dynamic> toJson() => {
@@ -92,7 +94,8 @@ class ServiceAccount {
   ///   'https://issuer.zitadel.ch',
   ///   AuthenticationOptions(apiAccess: true));
   /// ```
-  Future<String> authenticate(String audience, [AuthenticationOptions? options]) async {
+  Future<String> authenticate(String audience,
+      [AuthenticationOptions? options]) async {
     options ??= AuthenticationOptions();
 
     final discoveryResponse = await get(
@@ -114,7 +117,8 @@ class ServiceAccount {
     );
 
     if (response.statusCode > 299) {
-      throw Exception('An error occurred. Status Code: ${response.statusCode}.');
+      throw Exception(
+          'An error occurred. Status Code: ${response.statusCode}.');
     }
 
     final json = jsonDecode(utf8.decode(response.bodyBytes));
@@ -127,13 +131,18 @@ class ServiceAccount {
       'iss': userId,
       'sub': userId,
       'iat': DateTime.now().toUtc().millisecondsSinceEpoch ~/ 1000,
-      'exp': DateTime.now().toUtc().add(Duration(hours: 1)).millisecondsSinceEpoch ~/ 1000,
+      'exp': DateTime.now()
+              .toUtc()
+              .add(Duration(hours: 1))
+              .millisecondsSinceEpoch ~/
+          1000,
       'aud': audience,
     });
 
     final builder = JsonWebSignatureBuilder();
     builder.jsonContent = claims.toJson();
-    builder.addRecipient(JsonWebKey.fromPem(key, keyId: keyId), algorithm: 'RS256');
+    builder.addRecipient(JsonWebKey.fromPem(key, keyId: keyId),
+        algorithm: 'RS256');
 
     final signature = builder.build();
 
@@ -181,8 +190,9 @@ class AuthenticationOptions {
   String createScopes() => [
         'openid',
         if (apiAccess) apiAccessScope,
-        for (var scope in additionalScopes) scope,
-        for (var audience in projectAudiences) 'urn:zitadel:iam:org:project:id:$audience:aud',
-        for (var role in roles) 'urn:zitadel:iam:org:project:role:$role',
+        for (final scope in additionalScopes) scope,
+        for (final audience in projectAudiences)
+          'urn:zitadel:iam:org:project:id:$audience:aud',
+        for (final role in roles) 'urn:zitadel:iam:org:project:role:$role',
       ].join(' ');
 }
