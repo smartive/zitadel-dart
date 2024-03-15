@@ -1,3 +1,10 @@
+# [3.1.0](https://github.com/smartive/zitadel-dart/compare/v3.0.38...v3.1.0) (2024-03-15)
+
+
+### Features
+
+* upgrade deps and add other proto clients ([#223](https://github.com/smartive/zitadel-dart/issues/223)) ([c1e8bf0](https://github.com/smartive/zitadel-dart/commit/c1e8bf04100391f194b413fc56b56c6101ed278b))
+
 ## [3.0.38](https://github.com/smartive/zitadel-dart/compare/v3.0.37...v3.0.38) (2023-04-14)
 
 
