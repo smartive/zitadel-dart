@@ -44,7 +44,7 @@ void main() {
     ];
 
     for (final ctor in ctors) {
-      test('create a client', () {
+      test('create a client with $ctor', () {
         final _ = ctor(zitadelApiUrl);
       });
     }
