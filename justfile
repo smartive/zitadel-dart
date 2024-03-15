@@ -5,5 +5,11 @@ default: clean generate-grpc
 clean:
     @rm -rf {{proto_dir}}
 
-generate-grpc:
-    buf generate https://github.com/zitadel/zitadel.git --path ./proto/zitadel
+generate-grpc: && generate-barrel-files
+    buf generate https://github.com/zitadel/zitadel.git --path ./proto/zitadel --include-imports --include-wkt
+
+generate-barrel-files:
+    dart tool/barrel_file_generator.dart
+
+install-tools:
+    dart pub global activate protoc_plugin

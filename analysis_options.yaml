@@ -16,3 +16,4 @@ analyzer:
     - lib/src/grpc/generated
     - external/
     - example/
+    - tool/

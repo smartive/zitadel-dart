@@ -1,0 +1,7 @@
+version: v1
+managed:
+  enabled: true
+plugins:
+  - plugin: dart
+    out: lib/src/grpc/generated
+    opt: grpc
