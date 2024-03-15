@@ -13,17 +13,19 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          submodules: true
           token: ${{ secrets.DEPLOY_TOKEN }}
       - uses: dart-lang/setup-dart@v1
         with:
           sdk: stable
-      - uses: arduino/setup-protoc@v1
+      - uses: bufbuild/buf-setup-action@v1
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-      - name: enable protoc dart
-        run: dart pub global activate protoc_plugin
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: extractions/setup-just@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - run: just install-tools
       - run: dart pub get
+      - run: just
       - name: release
         uses: cycjimmy/semantic-release-action@v3
         with:

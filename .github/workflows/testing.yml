@@ -24,6 +24,7 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
       - run: just install-tools
+      - run: dart pub get
       - run: just
       - run: dart analyze
       - run: dart test
@@ -60,6 +61,7 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
       - run: just install-tools
+      - run: dart pub get
       - run: just
       - run: echo '### Publish Pub Package Result' >> $GITHUB_STEP_SUMMARY
       - run: dart pub publish --dry-run >> $GITHUB_STEP_SUMMARY
