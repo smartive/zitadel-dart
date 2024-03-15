@@ -7,31 +7,24 @@ on:
 
 jobs:
   lint_and_test:
-    strategy:
-      fail-fast: true
-      matrix:
-        sdk:
-          - 2.18.0
-          - stable
     name: Linting and Testing
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          submodules: true
       - uses: dart-lang/setup-dart@v1
         with:
-          sdk: ${{ matrix.sdk }}
+          sdk: stable
+      - uses: bufbuild/buf-setup-action@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: extractions/setup-just@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
       - uses: arduino/setup-protoc@v1
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-      - name: enable protoc dart
-        run: dart pub global activate protoc_plugin
-      - name: build gRPC
-        run: ./tool/generate_grpc.sh
-      - run: dart pub get
-      - name: build barrel files
-        run: ./tool/generate_barrel_files.dart
+      - run: just install-tools
+      - run: just
       - run: dart analyze
       - run: dart test
 
@@ -54,21 +47,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          submodules: true
       - uses: dart-lang/setup-dart@v1
         with:
           sdk: stable
+      - uses: bufbuild/buf-setup-action@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: extractions/setup-just@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
       - uses: arduino/setup-protoc@v1
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-      - name: enable protoc dart
-        run: dart pub global activate protoc_plugin
-      - run: dart pub get
-      - name: build gRPC
-        run: ./tool/generate_grpc.sh
-      - name: build barrel files
-        run: ./tool/generate_barrel_files.dart
+      - run: just install-tools
+      - run: just
       - run: echo '### Publish Pub Package Result' >> $GITHUB_STEP_SUMMARY
       - run: dart pub publish --dry-run >> $GITHUB_STEP_SUMMARY
         continue-on-error: true

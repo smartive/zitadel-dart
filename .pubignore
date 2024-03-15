@@ -11,3 +11,4 @@ external/
 renovate.json
 .releaserc.json
 analysis_options.yaml
+justfile
