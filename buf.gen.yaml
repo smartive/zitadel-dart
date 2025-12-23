@@ -2,6 +2,6 @@ version: v1
 managed:
   enabled: true
 plugins:
-  - plugin: dart
+  - plugin: buf.build/protocolbuffers/dart:v24.0.0
     out: lib/src/grpc/generated
     opt: grpc
