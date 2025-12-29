@@ -1,3 +1,8 @@
+# [3.2.0](https://github.com/smartive/zitadel-dart/compare/v3.1.0...v3.2.0) (29.12.2025)
+
+### Features
+* upgrade dependencies for grpc 5.0.0
+
 # [3.1.0](https://github.com/smartive/zitadel-dart/compare/v3.0.38...v3.1.0) (2024-03-15)
 
 
