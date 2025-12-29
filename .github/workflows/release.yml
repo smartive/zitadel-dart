@@ -27,7 +27,7 @@ jobs:
       - run: dart pub get
       - run: just
       - name: release
-        uses: cycjimmy/semantic-release-action@v3
+        uses: cycjimmy/semantic-release-action@v6
         with:
           extra_plugins: |
             @semantic-release/exec
