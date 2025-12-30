@@ -1,3 +1,8 @@
+# [3.2.1](https://github.com/smartive/zitadel-dart/compare/v3.2.0...v3.2.1) (30.12.2025)
+
+### Bugfix
+* generate sources again to ensure the correct versions are used
+
 # [3.2.0](https://github.com/smartive/zitadel-dart/compare/v3.1.0...v3.2.0) (29.12.2025)
 
 ### Features
