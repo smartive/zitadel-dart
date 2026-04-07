@@ -1,3 +1,8 @@
+# [3.2.1](https://github.com/smartive/zitadel-dart/compare/v3.2.1...v3.2.2) (07.04.2026)
+
+### Chore
+* Update Jose to close vulnerability in package
+
 # [3.2.1](https://github.com/smartive/zitadel-dart/compare/v3.2.0...v3.2.1) (30.12.2025)
 
 ### Bugfix
