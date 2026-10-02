@@ -1,6 +1,6 @@
 import 'dart:html';
 
-import 'package:zitadel/api/auth.dart';
+import 'package:zitadel/api/zitadel/auth.dart';
 import 'package:zitadel/api/clients.dart';
 
 const accessToken = 'i5MbxYgfR-NgQkpSHX_xCva1kLo2kcjWWezlC1tvNRD-R7aG4BJNxTxSBKBspIaTNtdwbtg';

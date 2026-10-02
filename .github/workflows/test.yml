@@ -1,0 +1,35 @@
+name: Test Package
+
+on:
+  pull_request:
+    branches:
+      - '**'
+  workflow_dispatch:
+
+jobs:
+  lint_and_test:
+    name: Linting and Testing
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+
+      - uses: bufbuild/buf-action@v1
+        with:
+          setup_only: true
+
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: just
+
+      - run: dart pub get
+      - run: just
+      - run: dart analyze
+      - run: dart test
+      - name: Test web client
+        run: dart test -p chrome test/clients_web_test.dart
+      - name: Dry-run publish
+        run: dart pub publish --dry-run

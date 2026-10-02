@@ -9,7 +9,14 @@
   ],
   "plugins": [
     "@semantic-release/commit-analyzer",
-    "@semantic-release/release-notes-generator",
+    [
+      "@semantic-release/release-notes-generator",
+      {
+        "writerOpts": {
+          "headerPartial": "## {{version}} - {{date}}"
+        }
+      }
+    ],
     "@semantic-release/changelog",
     [
       "@semantic-release/exec",

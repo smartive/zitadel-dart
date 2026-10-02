@@ -1,4 +1,5 @@
 @TestOn('browser')
+library;
 
 import 'package:test/test.dart';
 import 'package:zitadel/api/clients.dart';

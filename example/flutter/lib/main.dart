@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zitadel/api/auth.dart';
+import 'package:zitadel/api/zitadel/auth.dart';
 import 'package:zitadel/api/clients.dart';
 
 import 'constants_io.dart' if (dart.library.html) 'constants_web.dart';
