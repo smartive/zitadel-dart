@@ -1,3 +1,14 @@
+## 4.0.0 - 2026-10-02
+
+### Features
+* upgrade to protobuf 6.1.0 and grpc 5.1.0
+
+### Bug Fixes
+* select the web gRPC client on WASM
+
+### BREAKING CHANGES
+* Generated clients use protobuf 6.1.0. The package requires Dart SDK >=3.8.0 and grpc ^5.1.0.
+
 ## 3.2.2 - 2026-04-07
 
 ### Chore
