@@ -1,4 +1,4 @@
-import 'package:zitadel/api/auth.dart';
+import 'package:zitadel/api/zitadel/auth.dart';
 import 'package:zitadel/api/clients.dart';
 
 /// This is a "personal access token" from a service account of ZITADEL.

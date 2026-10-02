@@ -55,14 +55,16 @@ Future main() async {
     await entry.delete(recursive: true);
   }
 
-  print('Create barrels for google API files.');
-  for (final MapEntry(:key, :value)
-      in (await groupFiles(googleBaseDir, googleRelativeDir)).entries) {
-    final libName = p.basenameWithoutExtension(key);
-    final file = File(key);
+  if (await googleBaseDir.exists()) {
+    print('Create barrels for google API files.');
+    for (final MapEntry(:key, :value)
+        in (await groupFiles(googleBaseDir, googleRelativeDir)).entries) {
+      final libName = p.basenameWithoutExtension(key);
+      final file = File(key);
 
-    await file.create(recursive: true);
-    await file.writeAsString(libCode(libName, value));
+      await file.create(recursive: true);
+      await file.writeAsString(libCode(libName, value));
+    }
   }
 
   print('Create barrels for ZITADEL API files.');
