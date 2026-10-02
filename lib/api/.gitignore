@@ -1,2 +1,2 @@
-*.dart
-!./clients.dart
+google/
+zitadel/

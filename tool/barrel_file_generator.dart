@@ -14,7 +14,7 @@ final zitadelRelativeDir = Directory('lib/api/zitadel/');
 String libCode(String libName, List<String> files) =>
     '''// GENERATED CODE - DO NOT MODIFY BY HAND
 /// Reexport of generated resources for the gRPC $libName library.
-library $libName;
+library;
 
 ${files.map((f) => "export '$f';").join('\n')}
 ''';
