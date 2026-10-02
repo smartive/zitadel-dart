@@ -10,7 +10,6 @@ environment:
   sdk: '>=3.8.0 <4.0.0'
 
 dependencies:
-  archive: ^4.0.7
   fixnum: ^1.0.0
   grpc: ^5.1.0
   http: ^1.0.0
@@ -18,8 +17,6 @@ dependencies:
   protobuf: ^6.1.0
 dev_dependencies:
   build_runner: ^2.4.4
-  code_builder:
-  dart_style:
   lints: ^6.0.0
   path: ^1.9.0
   test: ^1.21.6
